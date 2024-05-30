@@ -3,6 +3,8 @@ package net.javaguides.spring.boot.service.impl;
 //Importing required classes
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,4 +57,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public void deleteDepartmentById(Long departmentId) {
 		departmentRepository.deleteById(departmentId);
 	}
+
+	// Get by Id operation
+	@Override
+	public Optional<DepartmentEntity> fetchDepartmentById(Long departmentId) {
+		return departmentRepository.findById(departmentId);
+	}
+
 }

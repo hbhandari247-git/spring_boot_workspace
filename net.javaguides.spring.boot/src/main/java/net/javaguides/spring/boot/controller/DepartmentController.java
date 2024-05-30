@@ -1,6 +1,8 @@
 package net.javaguides.spring.boot.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,12 @@ public class DepartmentController {
 	@GetMapping("/getAllDepartments")
 	public List<DepartmentEntity> fetchDepartmentList() {
 		return departmentService.fetchDepartmentList();
+	}
+
+	// Read operation
+	@GetMapping("/getDepartmentById/{id}")
+	public Optional<DepartmentEntity> fetchDepartmentById(@PathVariable("id") Long departmentId) {
+		return departmentService.fetchDepartmentById(departmentId);
 	}
 
 	// Update operation
