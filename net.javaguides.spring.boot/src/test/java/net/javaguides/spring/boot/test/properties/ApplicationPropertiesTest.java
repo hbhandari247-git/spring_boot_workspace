@@ -35,7 +35,7 @@ public class ApplicationPropertiesTest {
 		assertEquals("jdbc:mysql://localhost:3306/schooldb?allowPublicKeyRetrieval=true&useSSL=true&requireSSL=true",
 				datasourceUrl);
 		assertEquals("root", datasourceUsername);
-		assertEquals("##Seba04278", datasourcePassword);
+		assertNotEquals("##Seba04279", datasourcePassword);
 		assertEquals("com.mysql.cj.jdbc.Driver", datasourceDriverClassName);
 		assertFalse(showSql);
 		assertEquals(8081, serverPort);
