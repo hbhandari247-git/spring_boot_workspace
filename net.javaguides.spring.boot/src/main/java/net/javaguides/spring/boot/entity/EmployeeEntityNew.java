@@ -14,33 +14,42 @@ import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name = "Employee")
+@Table(name = "employeeentity")
 public class EmployeeEntityNew {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int empId;
-	private String empName;
+	private int employee_id;
+	private String first_name;
+	private String last_name;
 
 	@ManyToMany(cascade = { CascadeType.ALL })
 	@JoinTable(name = "Employee_Project", joinColumns = { @JoinColumn(name = "employee_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "project_id") })
 	private Set<ProjectEntity> projects = new HashSet<>();
 
-	public int getEmpId() {
-		return empId;
+	public int getEmployee_id() {
+		return employee_id;
 	}
 
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
 	}
 
-	public String getEmpName() {
-		return empName;
+	public String getFirst_name() {
+		return first_name;
 	}
 
-	public void setEmpName(String empName) {
-		this.empName = empName;
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
 
 	public Set<ProjectEntity> getProjects() {
